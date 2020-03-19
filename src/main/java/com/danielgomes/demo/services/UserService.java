@@ -1,5 +1,6 @@
 package com.danielgomes.demo.services;
 
+import com.danielgomes.demo.dto.UserDTO;
 import com.danielgomes.demo.exception.ObjectNotFoundException;
 import com.danielgomes.demo.domain.User;
 import com.danielgomes.demo.repository.UserRepository;
@@ -19,13 +20,19 @@ public class UserService {
         return repo.findAll();
     }
 
-
-    // Corrigir
     public User findById(String id) {
         User user = repo.findOne(id);
         if(user == null) {
             throw  new ObjectNotFoundException("Objeto não encontrado");
         }
         return user;
+    }
+
+    public User insert(User obj) {
+        return repo.insert(obj);
+    }
+
+    public User fromDTO(UserDTO objDto) {
+        return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
     }
 }
