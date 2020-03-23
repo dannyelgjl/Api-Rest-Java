@@ -1,4 +1,4 @@
-package com.danielgomes.demo.main;
+package com.danielgomes.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
